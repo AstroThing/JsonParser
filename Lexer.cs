@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -96,6 +97,15 @@ namespace JsonParser.Lexical {
 
                 if(_escapes.All(e => symbol.Char != e))
                     throw new LexicalException("Invalid escape character in string", symbol);
+
+                if(symbol.Char == 'u') {
+                    for(var i = 0; i < 4; i++) {
+                        symbol = Next();
+                        if(!symbol.IsHexDigit())
+                            throw new LexicalException("Invalid unicode sequence in string", symbol);
+                        lexeme.Add(symbol);
+                    }
+                }
 
                 lexeme.Add(symbol);
             }

@@ -32,6 +32,7 @@
     "stringify-object-with-one-liners": "^1.0.0"
   },
   "standard": {
-    "globals": "assert"
+    "globals": "assert",
+    "hey": "\u01fb\u0000"
   }
 }

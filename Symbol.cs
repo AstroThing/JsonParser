@@ -11,6 +11,12 @@ namespace JsonParser.Lexical {
             Line = line;
             Column = column;
         }
+
+        public bool IsHexDigit() {
+            return (Char >= '0' && Char <= '9') ||
+            (Char >= 'a' && Char <= 'f') ||
+            (Char >= 'A' && Char <= 'F');
+        }
         
         public override string ToString() {
             return Char.ToString();
