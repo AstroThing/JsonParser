@@ -63,13 +63,10 @@ namespace JsonParser.Lexical {
             if(symbol.Char == ',')
                 return new Token(lexeme, Token.Type.Comma);
 
-            if(symbol.Char == '-')
-                return new Token(lexeme, Token.Type.Minus);
-
             if(symbol.Char == '"')
                 return StringLiteral(lexeme);
 
-            if(char.IsDigit(symbol.Char))
+            if(char.IsDigit(symbol.Char) || symbol.Char == '-')
                 return NumberLiteral(lexeme);
 
             if(char.IsLetter(symbol.Char))

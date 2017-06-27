@@ -12,7 +12,6 @@ namespace JsonParser.Lexical {
             SquareBraceClose,
             Colon,
             Comma,
-            Minus,
             StringLiteral,
             FractionLiteral,
             IntLiteral,
